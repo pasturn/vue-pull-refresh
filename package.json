@@ -1,0 +1,8 @@
+{
+  "name": "vue-pull-refresh",
+  "version": "0.1.0",
+  "description": "a pull-refresh component for vue",
+  "main": "src/index.vue",
+  "author": "pasturn",
+  "license": "MIT"
+}
