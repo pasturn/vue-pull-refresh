@@ -48,18 +48,18 @@ export default {
                 return;
             }
             var target = e.touches[0];
-            this.dragStart = event.clientY;
+            this.dragStart = target.clientY;
             this.container.style.webkitTransition = 'none';
             this.pullIcon.classList.add('none');
         },
         touchMove (e) {
             if (this.dragStart === null) return;
             if (this.refreshFlag) {
-                event.preventDefault();
+                e.preventDefault();
                 return;
             }
-            var target = event.touches[0];
-            this.percentage = (this.dragStart - this.clientY) / window.screen.height;
+            var target = e.touches[0];
+            this.percentage = (this.dragStart - target.clientY) / window.screen.height;
             if (document.body.scrollTop === 0) {
                 if (this.percentage < 0) {
                     e.preventDefault();
@@ -89,7 +89,7 @@ export default {
         touchEnd (e) {
             if (this.percentage === 0) return;
             if (this.refreshFlag) {
-                event.preventDefault();
+                e.preventDefault();
                 return;
             }
 
@@ -124,7 +124,7 @@ export default {
             }
 
             this.changeOneTimeFlag = 0;
-            this,joinRefreshFlag = null;
+            this.joinRefreshFlag = null;
             this.dragStart = null;
             this.percentage = 0;
         },
